@@ -1,5 +1,4 @@
 import string
-import argparse
 import secrets
 import pyperclip
 
