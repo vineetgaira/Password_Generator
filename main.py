@@ -22,20 +22,28 @@ def display_menu():
           f"3 : Strong(letters + numbers + symbols){RESET}")
 
 def get_user_choice():
-    valid_choices=[1,2,3]
+    valid_choices={1,2,3}
     while True:
         try:
             length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password(integer):{BOLD_END}"))
-            if type(length)==int(length):
-                return length
+            if 1 <= length <= 15:
+                print(f"{GREEN}Valid.{RESET}")
+            else:
+                print(f"{RED}Please enter a valid choice! Between 1-15.")
+        except ValueError:
+            print(f"{RED}Please enter a integer between 1-15.{RESET}")
+        try:
             user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
             if user_choice in valid_choices:
-                return user_choice
+                return user_choice,length
             else:
                 print(f"{RED}Please enter a valid choice! Look at the menu.")
         except ValueError:
-            print(f"{RED}Please enter a valid choice.{RESET}")
+            print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
             
+            
+
+                
 
 def password_logic():
     pass
