@@ -23,7 +23,14 @@ def display_menu():
 
 def get_user_choice():
     valid_choices=[1,2,3]
-    length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password:{BOLD_END}"))
+    try:
+        length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password:{BOLD_END}"))
+        if type(length)==int:
+            return length
+    except ValueError:
+        print(f"{RED}Please enter a valid length.{RESET}")
+    
+
     while True:
         try:
             user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
