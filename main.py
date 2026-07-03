@@ -23,11 +23,12 @@ def display_menu():
 
 def get_user_choice():
     valid_choices=[1,2,3]
+    length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password:{BOLD_END}"))
     while True:
         try:
             user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
             if user_choice in valid_choices:
-                return user_choice
+                return user_choice,length
             else:
                 print(f"{RED}Please enter a valid choice! Look at the menu.")
         except ValueError:
