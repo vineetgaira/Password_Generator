@@ -23,23 +23,24 @@ def display_menu():
 
 def get_user_choice():
     valid_choices=[1,2,3]
-    try:
-        length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password:{BOLD_END}"))
-        if type(length)==int:
-            return length
-    except ValueError:
-        print(f"{RED}Please enter a valid length.{RESET}")
-    
-
     while True:
+        try:
+            length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password:{BOLD_END}"))
+            if type(length)==int(length):
+                return length
+                
+        except ValueError:
+            print(f"{RED}Please enter a valid length.{RESET}")
+    
         try:
             user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
             if user_choice in valid_choices:
-                return user_choice,length
+                return user_choice
             else:
                 print(f"{RED}Please enter a valid choice! Look at the menu.")
         except ValueError:
             print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
+            
 
 def password_logic():
     pass
