@@ -52,13 +52,16 @@ def get_user_choice():
         
 def password_generator(user_choice,length):
     password = ""
-    for _ in range(length):
-        if user_choice==1:
+    if user_choice==1:
+        for _ in range(length):
             password += secrets.choice(WEAK)
-        elif user_choice==2:
+    elif user_choice==2:
+        for _ in range(length):
             password += secrets.choice(MEDIUM)
-        elif user_choice==3:
+    elif user_choice==3:
+        for _ in range(length):
             password += secrets.choice(STRONG)
+
     return password
         
 def display_password():
