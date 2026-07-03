@@ -67,14 +67,17 @@ def display_password():
         user_choice,length=get_user_choice()
         password=password_generator(user_choice,length)
         print(f"{BOLD_START}{GREEN}Here is your password :{password}{BOLD_END}")
-        print(f"{BLUE}Press 'E' to copy to clipboard and exit.\n"
-            f"Press anything else to generate a new password.")
+        print(f"{BLUE}Press 'C' to copy to clipboard and exit.\n"
+            f"Press anything to generate a new password.")
         user_ques=input(f"Please give a command :{RESET}")
-        if user_ques=="E" or user_ques=="e":
+        if user_ques=="C" or user_ques=="c":
             pyperclip.copy(password)
             print(f"{GREEN}Copied to clipboard.\n"
                   f"Thanks for using...{RESET}")
             break
+            
+        
+        
  
 if __name__=="__main__":
     display_password()
