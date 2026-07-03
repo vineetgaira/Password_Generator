@@ -17,9 +17,9 @@ def display_menu():
     "You can use symbols, numbers, letters.\n"
     "You can choose any of the following, and combination, or all of them.\n")
     print(f"{BOLD_START}Select a password strength level.{BOLD_END}\n"
-          f"{BLUE}1 : Weak\n" \
-          "2 : Meduim\n" \
-          f"3 : Strong{RESET}")
+          f"{BLUE}1 : Weak(only letters)\n" \
+          "2 : Medium(letters + numbers)\n" \
+          f"3 : Strong(letters + numbers + symbols){RESET}")
 
 def get_user_choice():
     valid_choices=[1,2,3]
@@ -32,11 +32,16 @@ def get_user_choice():
             else:
                 print(f"{RED}Please enter a valid choice! Look at the menu.")
         except ValueError:
-            print(f"Please enter a valid choice! Look at the menu.{RESET}")
+            print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
 
 def password_logic():
     pass
 def password_generator():
+    pass
+
+def display_password():
+    pass
+def copy_to_clipboard():
     pass
 
 display_menu()
