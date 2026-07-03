@@ -29,6 +29,11 @@ def display_menu():
           "2 : Medium(letters + numbers)\n" \
           f"3 : Strong(letters + numbers + symbols){RESET}")
 
+def display_second_menu():
+    print(f"{BLUE}If you want to create another password continue.\n"
+          "If you want to exit the program press '4'.\n"
+          f"If you want to copy the password to the clipboard press '5'.{RESET}")
+
 def get_user_choice():
     valid_choices={1,2,3}
     while True:
@@ -50,30 +55,39 @@ def get_user_choice():
             except ValueError:
                 print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
         
-def password_logic():
+def password_generator(user_choice,length):
     password = ""
-    user_choice,length=get_user_choice()
-    if user_choice==1:
-        for _ in range(length):
+    for _ in range(length):
+        if user_choice==1:
             password += secrets.choice(WEAK)
-        return password
-    elif user_choice==2:
-        for _ in range(length):
+            return password
+        elif user_choice==2:
             password += secrets.choice(MEDIUM)
-        return password
-    elif user_choice==3:
-        for _ in range(length):
+            return password
+        elif user_choice==3:
             password += secrets.choice(STRONG)
-        return password
+            return password
         
-def password_generator():
-    pass
-
 def display_password():
-    pass
-def copy_to_clipboard():
-    pass
+    while True:
+        display_menu()
+        user_choice,length=get_user_choice()
+        password_generator(user_choice,length)
+        password=password_generator(user_choice,length)
+        print(f"{BOLD_START}{GREEN}Here is your password :{password}{BOLD_END}")
+        display_second_menu()
+        if user_choice==5:
+            pyperclip.copy(password)
+        elif user_choice==4:
+            break
 
+if __name__=="__main__":
+    display_password()
+
+    
+
+            
+        
 
                 
 
