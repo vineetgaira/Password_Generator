@@ -76,11 +76,11 @@ def display_password():
                   f"Thanks for using...{RESET}")
             break
             
-        
-        
  
 if __name__=="__main__":
     display_password()
+        
+        
 
 
             
