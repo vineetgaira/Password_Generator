@@ -27,24 +27,23 @@ def get_user_choice():
         try:
             length=int(input(f"{BOLD_START}{BLUE}Enter the length of the password(integer):{BOLD_END}"))
             if 1 <= length <= 15:
-                print(f"{GREEN}Valid.{RESET}")
+                pass
             else:
                 print(f"{RED}Please enter a valid choice! Between 1-15.")
+                continue
         except ValueError:
             print(f"{RED}Please enter a integer between 1-15.{RESET}")
-        try:
-            user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
-            if user_choice in valid_choices:
-                return user_choice,length
-            else:
-                print(f"{RED}Please enter a valid choice! Look at the menu.")
-        except ValueError:
-            print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
-            
-            
-
-                
-
+            continue
+        while True:
+            try:
+                user_choice=int(input(f"{BOLD_START}{BLUE}Enter your choice:{BOLD_END}"))
+                if user_choice in valid_choices:
+                    return user_choice, length
+                else:
+                    print(f"{RED}Please enter a valid choice! Look at the menu.")
+            except ValueError:
+                print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
+        
 def password_logic():
     pass
 def password_generator():
@@ -57,3 +56,8 @@ def copy_to_clipboard():
 
 display_menu()
 get_user_choice()
+            
+            
+
+                
+
