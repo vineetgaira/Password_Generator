@@ -59,8 +59,8 @@ def password_generator(user_choice,length):
             character_pool = MEDIUM
         elif user_choice==3:
             character_pool = STRONG
+        password.append(secrets.choice(character_pool))
     
-    password.append(secrets.choice(character_pool))
     result="".join(password)
 
     return result
