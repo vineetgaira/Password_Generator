@@ -51,18 +51,19 @@ def get_user_choice():
                 print(f"{RED}Please enter a valid choice! Look at the menu.{RESET}")
         
 def password_generator(user_choice,length):
-    password = ""
-    if user_choice==1:
-        for _ in range(length):
-            password += secrets.choice(WEAK)
-    elif user_choice==2:
-        for _ in range(length):
-            password += secrets.choice(MEDIUM)
-    elif user_choice==3:
-        for _ in range(length):
-            password += secrets.choice(STRONG)
+    password = []
+    for _ in range(length):
+        if user_choice==1:
+            character_pool = WEAK
+        elif user_choice==2:
+            character_pool = MEDIUM
+        elif user_choice==3:
+            character_pool = STRONG
+    
+    password.append(secrets.choice(character_pool))
+    result="".join(password)
 
-    return password
+    return result
         
 def display_password():
     while True:
@@ -72,8 +73,8 @@ def display_password():
         print(f"{BOLD_START}{GREEN}Here is your password :{password}{BOLD_END}")
         print(f"{BLUE}Press 'C' to copy to clipboard and exit.\n"
             f"Press anything to generate a new password.")
-        user_ques=input(f"Please give a command :{RESET}")
-        if user_ques=="C" or user_ques=="c":
+        user_command=input(f"Please give a command :{RESET}")
+        if user_command=="C" or user_command=="c":
             pyperclip.copy(password)
             print(f"{GREEN}Copied to clipboard.\n"
                   f"Thanks for using...{RESET}")
